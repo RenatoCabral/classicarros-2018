@@ -1,0 +1,1 @@
+<textarea name="obs" cols="50" rows="10"><?=$obs?></textarea>

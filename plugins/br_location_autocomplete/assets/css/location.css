@@ -1,0 +1,13 @@
+.itemImovel{
+	display: block;
+}
+.labelItemImovel{
+	width: 50%;
+	float: left;
+}
+.inside{
+	overflow: auto;
+}
+#br_la_state{
+	height: 27px;
+}

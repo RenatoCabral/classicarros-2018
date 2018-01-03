@@ -1,0 +1,15 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.recover-link {
+    display: block;
+    text-decoration: none;
+    color: #2b2e38;
+    margin-top: 15px;
+}
+
+.recover-link:hover{
+    color: #000;
+}
