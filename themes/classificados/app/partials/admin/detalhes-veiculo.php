@@ -15,6 +15,11 @@
 </p>
 
 <p class="item-detalhes">
+    <label>Ano</label>
+    <input type="text" name="year" id="year" required value="<?= $year ?>">
+</p>
+
+<p class="item-detalhes">
     <label>Km</label>
     <input type="text" name="km" required value="<?= $km ?>">
 </p>

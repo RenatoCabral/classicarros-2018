@@ -197,6 +197,7 @@ function admin_scripts(){
                 jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
                 jQuery('.select-localizacao').select2();
                 jQuery('#price').mask('000.000.000.000.000,00',{reverse: true});
+                jQuery('#year').mask('0000');
 
                 //percorre o array de modelos que estao na variavel js model
                 var model = <?= json_encode($model);?>;
