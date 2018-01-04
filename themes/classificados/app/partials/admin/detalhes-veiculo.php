@@ -10,6 +10,11 @@
 <br>
 
 <p class="item-detalhes">
+    <label>Modelo</label>
+    <input type="text" name="model" id="model" required value="<?= $model ?>">
+</p>
+
+<p class="item-detalhes">
     <label>Km</label>
     <input type="text" name="km" required value="<?= $km ?>">
 </p>

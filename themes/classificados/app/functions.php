@@ -150,7 +150,17 @@ function get_item_series(){
 function admin_scripts(){
     global $typenow;
     //scripts serao carregados no admin onde o post type for veiculos
-    if(is_admin() && $typenow == 'veiculo'){ ?>
+    if(is_admin() && $typenow == 'veiculo'){
+
+        global $wpdb;
+
+        $model = $wpdb->get_col("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'model'");
+
+        ?>
+
+
+
+
        <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
 
         <style>
@@ -179,11 +189,27 @@ function admin_scripts(){
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
 
+
         <script>
+
+
             jQuery(document).ready(function() {
                 jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
                 jQuery('.select-localizacao').select2();
-                 jQuery('#price').mask('000.000.000.000.000,00',{reverse: true});
+                jQuery('#price').mask('000.000.000.000.000,00',{reverse: true});
+
+                //percorre o array de modelos que estao na variavel js model
+                var model = <?= json_encode($model);?>;
+                console.log(model);
+
+                var i;
+                for(i = 0; i < model.length; i++){
+                    if(model[i] === null){
+                        model.splice(i,1);
+                        i--;
+                    }
+                }
+                jQuery('#model').autocomplete({source:model});
 
             });
         </script>
