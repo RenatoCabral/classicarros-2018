@@ -28,7 +28,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
         <div class="card-content">
             <a class="dados-veiculos" href="<?php the_permalink() ?>">
                 <p class="cod-vehicle">Cod. <?= $post_id ?></p>
-                <p class="price">R$ <?= number_format( $price, 2, ',', '.' ); ?></p>
+                <p class="price">R$ <?= number_format((float) $price, 2, ',','.') ?></p>
 <!--                <p class="card-content-title">--><?//= the_title() ?><!--</p>-->
                 <p class="card-content-title"><?php wp_customTitleVehicles(15); ?></p>
                 <p><?= $km ?> Km</p>

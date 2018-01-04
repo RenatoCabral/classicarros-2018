@@ -23,7 +23,7 @@ function render_slide_home() {
 
 }
 
-                                       /*posts noticias home*/
+/*posts noticias home*/
 function render_blog( $img_src ) {
     ?>
 
@@ -334,12 +334,20 @@ function render_most_viewed() {
     <?php }
 }
 
-function render_search_blog() {
-    if ( ! have_posts() ) {
+function render_search_blog($query_string) {
+
+    $query = new WP_Query([
+        'post_type' => 'blog',
+        's' => $query_string,
+        'posts_per_page' => -1,
+        'post_status' => 'publish'
+    ]);
+
+    if ( !$query->have_posts() ) {
         echo '<h4> Resultado não encontrado</h4>';
     } else {
-        while ( have_posts() ) {
-            the_post();
+        while ( $query->have_posts() ) {
+            $query->the_post();
             $img_src = get_the_post_thumbnail_url( get_the_ID(), 'thumb-news' );
             render_blog( $img_src );
         }

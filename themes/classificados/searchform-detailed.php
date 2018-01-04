@@ -1,14 +1,20 @@
+
+<?php
+if(is_home() || is_singular('veiculo')){
+?>
 <div class="container-fluid">
     <div class="row title_div_cars">
         <h5>Busca Detalhada</h5>
     </div>
 </div>
+<?php } ?>
 
 <div class="container-fluid">
     <div class="row div-form-search">
         <form class="form-search" action="<?= home_url() ?>">
+
             <input type="hidden" name="s" value="-1">
-            <input type="hidden" name="post_type" id="post_type" value="veiculo">
+            <input type="hidden" name="post_type"value="veiculo">
             <input type="hidden" name="search-type" value="detailed">
 
             <div class="row div-item-input-search-form">
@@ -44,7 +50,7 @@
                 </div>
 
                 <div class="col s12 m2 l2">
-                    <select name="price_max" id="price_max" class="select-searchform">
+                    <select name="pricemax" id="pricemax" class="select-searchform">
                         <option value="">Valor Máximo</option>
                         <option value="20000">até R$ 20.000</option>
                         <option value="30000">até R$ 30.000</option>

@@ -8,20 +8,26 @@
                 <h5>Resultado da Busca</h5>
             </div>
             <div class="div-searchform-blog">
-		        <?php get_search_form(); ?>
+		        <?php
+                if(isset($_GET['search-type']) && $_GET['search-type']=='detailed'){
+                    get_template_part('searchform-detailed');
+                }else{
+                    get_search_form();
+                }
+                ?>
             </div>
         </div>
 
         <div class="col s12 m12 l12 info_return_search">
 
 			<?php
-			$code = isset($_GET['code']) ? $_GET['code'] :  '' ;
-			$s   = $_GET[ 's' ];
 
-			if ($code != '' || $s == '-1' ) {
-				render_search_veiculo( $code );
+            if(isset($_GET['search-type']) && $_GET['search-type']=='detailed'){
+                get_template_part('search-results-detailed');
+
 			} else {
-				render_search_blog();
+                $query_string = isset($_GET['s']) ? $_GET['s'] : '';
+				render_search_blog($query_string);
 			}
 			?>
 

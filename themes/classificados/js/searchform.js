@@ -6,7 +6,7 @@ jQuery(document).ready(function () {
 
     jQuery('#Select-Marca').change(function () {
         jQuery('#Select-Modelo').empty().append('<option>Carregando...</option>');
-        jQuery('#Select-Ano').empty().append('<option>Ano</option>');
+        jQuery('#Select-Ano').empty().append('<option value="">Ano</option>');
         jQuery.ajax({
             url: ajaxurl,
             type: 'post',

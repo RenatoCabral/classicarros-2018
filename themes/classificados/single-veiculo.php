@@ -7,6 +7,9 @@ setPostViews( $post_id );
 
     <div class="container-fluid">
         <div class="row">
+            <?php get_template_part('searchform-detailed'); ?>
+            <br>
+            <br><br>
             <div class="col s12 m12 l12">
                 <div class="col s12 m12 l6">
                     <div class=" col s12 m12 l12 description-vehicle">
