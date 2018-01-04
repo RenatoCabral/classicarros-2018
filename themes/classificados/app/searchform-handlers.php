@@ -33,11 +33,19 @@ function get_models_by_manufacturer() {
 }
 
 function get_years_list() {
-    if ( isset( $_POST['model'] ) ) {
+    if ( isset( $_POST['manufacturer'] ) && isset( $_POST['model'] ) ) {
 
         $args = [
             'post_type'   => 'veiculo',
             'post_status' => 'publish',
+            'tax_query'   =>
+                [
+                    [
+                        'taxonomy' => 'manufacturer',
+                        'field'    => 'term_id',
+                        'terms'    => $_POST['manufacturer']
+                    ]
+                ],
             'meta_query'   =>
                 [
                     [

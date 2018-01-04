@@ -1,4 +1,5 @@
 <?php
+
 $code = isset($_GET['code']) ? $_GET['code'] : '';
 
 if ( !empty($code) ) {
@@ -30,7 +31,7 @@ if ( !empty($code) ) {
         'posts_per_page' => -1,
         'post_status' => 'publish',
         'orderby' => 'meta_value_num',
-        'order' => 'desc',
+        'order' => 'asc',
         'meta_key' => 'price'
     ];
 
