@@ -32,6 +32,9 @@ function render_data_meta_box() {
 	$motor        = get_post_meta( $post_id, 'motor', true );
 	$manufacturer = get_post_meta( $post_id, 'manufacturer', true );
 	$model        = get_post_meta( $post_id, 'model', true );
+    $model        = get_post_meta( $post_id, 'uf', true );
+    $model        = get_post_meta( $post_id, 'city', true );
+
 
 
 	include "partials/admin/detalhes-veiculo.php";
@@ -104,7 +107,6 @@ function save_meta_veiculo( $post_id ) {
 	update_post_meta( $post_id, 'final_place', $_POST['final_place'] );
 	update_post_meta( $post_id, 'motor', $_POST['motor'] );
 	update_post_meta( $post_id, 'manufacturer', $_POST['manufacturer'] );
-
 	update_post_meta( $post_id, 'model', $_POST['model'] );
 	update_post_meta( $post_id, 'obs', $_POST['obs'] );
 

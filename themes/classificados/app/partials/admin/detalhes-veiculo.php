@@ -18,8 +18,11 @@ $motors        = get_motors();
 $fuels         = get_fuels();
 $exchanges     = get_exchanges();
 $conservations = get_conservations();
+$uf            = get_uf();
+$city          = get_city();
 
 ?>
+
 
 <p class="item-detalhes">
     <label>
@@ -88,3 +91,4 @@ $ano = json_decode($year);
     <label>Final Placa</label>
     <input type="text" name="final_place" placeholder="8" required value="<?= $final_place ?>">
 </p>
+

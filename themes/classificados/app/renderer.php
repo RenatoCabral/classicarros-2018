@@ -187,16 +187,14 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
         <?php }
         if ( ! empty( $uf ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">insert_invitation</i>Estado: <b><?= $uf ?></b>
-                </p>
+                <img src="<?= get_bloginfo('template_url') ?>/img/icon-uf-32.png" class="vehicle-details-icon responsive-img">
+                <p class="icon-text">Estado: <b><?= $uf ?></b></p>
             </div>
         <?php }
         if ( ! empty( $city ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
-                <p>
-                    <i class="material-icons small left vehicle-details-icon">insert_invitation</i>Cidade: <b><?= $city ?></b>
-                </p>
+                <img src="<?= get_bloginfo('template_url') ?>/img/icon-city-32.png" class="vehicle-details-icon responsive-img">
+                <p class="icon-text">Cidade: <b><?= $city ?></b></p>
             </div>
         <?php }?>
     </div>

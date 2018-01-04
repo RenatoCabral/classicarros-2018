@@ -93,7 +93,7 @@ setPostViews( $post_id );
                         </div>
 
                         <div class="input-field col s12 m12 l6">
-                            <i class="material-icons prefix">phone_iphone</i>
+                            <i class="material-icons prefix">assignment_ind</i>
                             <input required id="icon_prefix" type="text" class="validate phone input-cpf">
                             <label for="icon_prefix">CPF</label>
                         </div>
