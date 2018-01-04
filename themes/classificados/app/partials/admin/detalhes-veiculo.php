@@ -1,14 +1,17 @@
-                                <!--Cria os campos na parte de detalhes do carro-->
+<!--Cria os campos na parte de detalhes do carro-->
 
 <p class="item-detalhes">
-    <label>Preço</label>
-    <input type="text" name="price" placeholder="58200" required value="<?= $price ?>">
-</p>
 
+    <label>Preço</label>
+    <input type="text" name="price" id="price" required value="<?= number_format((float) $price, 2, ',','.') ?>">
+    <br>
+    <small>Informe apenas valores inteiros (sem centavos) | Sujeito a alteração.</small>
+</p>
+<br>
 
 <p class="item-detalhes">
     <label>Km</label>
-    <input type="text" name="km" placeholder="1000" required value="<?= $km ?>">
+    <input type="text" name="km" required value="<?= $km ?>">
 </p>
 
 
@@ -18,8 +21,7 @@ $motors        = get_motors();
 $fuels         = get_fuels();
 $exchanges     = get_exchanges();
 $conservations = get_conservations();
-$uf            = get_uf();
-$city          = get_city();
+
 
 ?>
 
@@ -41,32 +43,6 @@ $city          = get_city();
     </label
 </p>
 
-<?php
-$marca = json_decode($manufacturer);
-$modelo = json_decode($model);
-$ano = json_decode($year);
-?>
-
-<p class="item-detalhes item-marca">
-    <label>Marca</label>
-    <select name="manufacturer" class="marca" data-marca-selected="<?= isset( $marca->id) ?  $marca->id : '' ?>">
-        <option value="">Selecione</option>
-    </select>
-</p>
-
-<p class="item-detalhes item-modelo">
-    <label>Modelo</label>
-    <select name="model" class="modelo" data-modelo-selected="<?= isset( $modelo->id) ?  $modelo->id : '' ?>">
-        <option value="">Selecione</option>
-    </select>
-</p>
-
-<p class="item-detalhes item-ano">
-    <label>Ano</label>
-    <select name="year" class="ano" data-ano-selected="<?= isset( $ano->id) ?  $ano->id : '' ?>">
-        <option value="">Selecione</option>
-    </select>
-</p>
 
 <p class="item-detalhes">
     <label>

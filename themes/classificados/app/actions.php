@@ -24,6 +24,7 @@ add_action( 'add_meta_boxes', 'add_slide_details_to_admin' );
 add_action( 'save_post_sliders', 'update_slide_details' );
 
 add_action( 'init', 'create_categoria_taxonomy' );
+add_action( 'init', 'create_fabricante_taxonomy' );
 
 add_action('admin_head','admin_scripts');
 

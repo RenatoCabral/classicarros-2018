@@ -30,10 +30,7 @@ function render_data_meta_box() {
 	$conservation = get_post_meta( $post_id, 'conservation', true );
 	$final_place  = get_post_meta( $post_id, 'final_place', true );
 	$motor        = get_post_meta( $post_id, 'motor', true );
-	$manufacturer = get_post_meta( $post_id, 'manufacturer', true );
 	$model        = get_post_meta( $post_id, 'model', true );
-    $model        = get_post_meta( $post_id, 'uf', true );
-    $model        = get_post_meta( $post_id, 'city', true );
 
 
 
@@ -96,7 +93,10 @@ function save_meta_veiculo( $post_id ) {
 	}
 
 
-	update_post_meta( $post_id, 'price', $_POST['price'] );
+	$remove_mask = [',00','.'];
+	$new_price = str_replace($remove_mask,'',$_POST['price']);
+
+	update_post_meta( $post_id, 'price', $new_price );
 	update_post_meta( $post_id, 'doors', $_POST['doors'] );
 	update_post_meta( $post_id, 'exchange', $_POST['exchange'] );
 	update_post_meta( $post_id, 'year', $_POST['year'] );
@@ -106,7 +106,6 @@ function save_meta_veiculo( $post_id ) {
 	update_post_meta( $post_id, 'conservation', $_POST['conservation'] );
 	update_post_meta( $post_id, 'final_place', $_POST['final_place'] );
 	update_post_meta( $post_id, 'motor', $_POST['motor'] );
-	update_post_meta( $post_id, 'manufacturer', $_POST['manufacturer'] );
 	update_post_meta( $post_id, 'model', $_POST['model'] );
 	update_post_meta( $post_id, 'obs', $_POST['obs'] );
 

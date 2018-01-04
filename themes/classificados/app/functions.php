@@ -148,7 +148,6 @@ function get_item_series(){
 }
 
 function admin_scripts(){
-    //https://pt.stackoverflow.com/questions/186880/formul%C3%A1rio-ajax-javascript-e-php/186923
     global $typenow;
     //scripts serao carregados no admin onde o post type for veiculos
     if(is_admin() && $typenow == 'veiculo'){ ?>
@@ -160,15 +159,7 @@ function admin_scripts(){
                 margin: 8px;
                 display: inline-block;
             }
-            .item-marca .select2{
-                width: 130px !important;
-           }
-           .item-modelo .select2{
-                width: 150px !important;
-           }
-           .item-ano .select2{
-                width: 120px !important;
-           }
+
             .item-detalhes{
                 display: inline-block;
                 margin-right: 15px;
@@ -178,172 +169,26 @@ function admin_scripts(){
             }
 
             .info-cadastro{
-            color: red;
-            text-align: center;
-            padding: 10px;
+                color: red;
+                text-align: center;
+                padding: 10px;
             }
 
         </style>
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
         <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
+
         <script>
+            jQuery(document).ready(function() {
+                jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
+                jQuery('.select-localizacao').select2();
+                 jQuery('#price').mask('000.000.000.000.000,00',{reverse: true});
 
-
-
-        jQuery(document).ready(function() {
-            jQuery('#submitpost').append('<p class="info-cadastro">Seu cadastro está sujeito a aprovação.</p>');
-            fipeMarcas();
-            fipeModelos();
-            fipeAno();
-            mask();
-            jQuery('.select-localizacao').select2();
-            jQuery('.marca').select2();
-            jQuery('.modelo').select2();
-            jQuery('.ano').select2();
-
-        });
-
-        function fipeMarcas(){
-            var marcaSelected = jQuery('.marca').data('marca-selected');
-
-            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/marcas.json");
-            jQuery.ajax({
-                url: URL,
-                dataType: "jsonp",
-                cache: false,
-                success: function (response) {
-                    var data = response.contents;
-                    var option = '';
-                    data = jQuery.parseJSON(data);
-                    jQuery.each(data, function(i, item) {
-                        var elems_obj = {};
-                       elems_obj['id'] = item.id;
-                       elems_obj['name'] = item.name;
-                       var valueMarca = JSON.stringify(elems_obj);
-                       var selected = marcaSelected === item.id ? 'selected' : '';
-                       option += "<option "+selected+"  value='" + valueMarca + " '>"+ item.name + "</option>";
-
-                    });
-                    jQuery('.marca').append(option);
-
-                },
-                error: function (response) {
-                    console.log('ERROR marca');
-                    console.log(response)
-                }
             });
-        }
+        </script>
 
-
-
-        jQuery(document).on('change','.marca', function () {
-            jQuery('.modelo').html('').select2({data: {id:null, text: null}});
-            fipeModelos()
-        });
-         jQuery(document).on('change','.modelo', function () {
-               jQuery('.ano').html('').select2({data: {id:null, text: null}});
-                fipeAno()
-        });
-
-        function fipeModelos(){
-            var modeloSelected = jQuery('.modelo').data('modelo-selected'); // pega o modelo selecionado
-            console.log('modelo selecionado salvo no db: '+modeloSelected);
-            var marca = jQuery('.marca').val();
-            console.log('marca selecionado: '+marca);
-
-               if(marca === ''){ // se a marca já estiver salva no banco ele pega de la. E o valor está atribuido no atributo data-marca-selected.
-//               Entao, ele será indefinido pois o javascript demora carregar. Mas se está salvo, eu já tenho o valor.
-
-                     marca = jQuery('.marca').data('marca-selected');
-                     console.log('entrou no if ');
-                     console.log(marca);
-
-               }
-
-
-            var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculos/"+marca+".json");
-            jQuery.ajax({
-                url: URL,
-                type: 'post',
-                dataType: "jsonp",
-                cache: false,
-                success: function (response) {
-                    console.log('SUCCESS');
-                    var data = response.contents;
-                    var option = '';
-                    data = jQuery.parseJSON(data);
-                    jQuery.each(data, function(i, item) {
-
-                       var elems_obj = {};
-                       elems_obj['id'] = item.id;
-                       elems_obj['name'] = item.name;
-                       var valueModel = JSON.stringify(elems_obj);
-                       var selected = modeloSelected == item.id ? 'selected' : '';
-                       option += "<option "+selected+"  value='" + valueModel + " '>"+ item.name + "</option>";
-                    });
-                    jQuery('.modelo').append(option);
-
-                },
-                error: function (response) {
-                    console.log('ERROR modelo');
-                    console.log(response)
-                }
-            });
-        }
-
-        function fipeAno(){
-           var marca = jQuery('.marca').val();
-           var anoSelected = jQuery('.ano').data('ano-selected'); // pega o modelo selecionado
-           var modelo= jQuery('.modelo').val();
-
-
-           if(marca === ''){
-                marca = jQuery('.marca').data('marca-selected');
-           }
-
-           if(modelo === ''){
-                 modelo = jQuery('.modelo').data('modelo-selected');
-           }
-
-              var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://fipeapi.appspot.com/api/1/carros/veiculo/"+marca+"/"+modelo+".json");
-              console.log(URL);
-               jQuery.ajax({
-               url: URL,
-               type: 'post',
-               dataType: "jsonp",
-               cache: false,
-               success: function (response) {
-                   console.log('SUCCESS');
-                   var data = response.contents;
-                   var option = '';
-                   data = jQuery.parseJSON(data);
-                   jQuery.each(data, function(i, item) {
-                       var elems_obj = {};
-                       elems_obj['id'] = item.id;
-                       elems_obj['name'] = item.name;
-                       var valueAno = JSON.stringify(elems_obj);
-                       var selected = anoSelected == item.id ? 'selected' : '';
-                       option += "<option "+selected+"  value='" + valueAno + " '>"+ item.name + "</option>";
-                   });
-                   jQuery('.ano').append(option);
-               },
-               error: function (response) {
-                   console.log('ERROR ano');
-                   console.log(response)
-               }
-            });
-        }
-
-
-        function mask(){
-             jQuery('#ano').mask('0000');
-        }
-
-
-    </script>
-
-<?php }
+    <?php }
 }
 
 function post_pagination($pages = '', $range = 2) {
@@ -406,79 +251,7 @@ function get_valid_cities_by_state_id() {
 }
 
 
-
-function get_models_by_manufacturer() {
-	if ( isset( $_POST['fabricante'] ) ) {
-		$posts = new WP_Query(
-		        [
-			        'post_type'   => 'veiculo',
-			        'post_status' => 'publish',
-			        'posts_per_page' => -1,
-			        'meta_query'     => [
-			                [
-					    'key'   => 'manufacturer',
-					    'value' =>  $_POST['fabricante']
-					    ]
-		            ]
-		        ]
-		);
-
-		$models = [];
-		$output = '<option value="">Modelo</option>';
-		while ( $posts->have_posts() ) : $posts->the_post();
-			$model = get_post_meta( get_the_ID(), 'model', true );
-			if ( ! empty( $model ) ) {
-				if ( ! in_array( $model, $models ) ) {
-
-            	    $pattern = '/[^\-]+/';
-	                preg_match( $pattern, $model, $partes, PREG_OFFSET_CAPTURE );
-
-					$output .= '<option value="' . $model . '">' . ucfirst($partes[0][0]) . '</option>';
-					$models[] = $model;
-				}
-			}
-		endwhile;
-		echo $output;
-	}
-	die();
-}
-
-function get_years_by_model() {
-	if ( isset( $_POST['modelo'] ) ) {
-		$posts = new WP_Query(
-		        [
-			        'post_type'   => 'veiculo',
-			        'post_status' => 'publish',
-			        'posts_per_page' => -1,
-			        'meta_query'     => [
-			                [
-					    'key'   => 'model',
-					    'value' =>  $_POST['modelo']
-					    ]
-		            ]
-		        ]
-		);
-
-		$years = [];
-		$output = '<option value="">Ano</option>';
-		while ( $posts->have_posts() ) : $posts->the_post();
-			$year = get_post_meta( get_the_ID(), 'year', true );
-			if ( ! empty( $year ) ) {
-				if ( ! in_array( $year, $years ) ) {
-
-            	    $pattern = '/[^\-]+/';
-	                preg_match( $pattern, $year, $partes, PREG_OFFSET_CAPTURE );
-
-					$output .= '<option value="' . $year . '">' . ucfirst($partes[0][0]) . '</option>';
-					$years[] = $year;
-				}
-			}
-		endwhile;
-		echo $output;
-	}
-	die();
-}
-
+//TODO: refatorar essas 3 funcoes de limitacao de palavras. Tem que existir apenas 1.
 
 function limit_words($string, $word_limit) {
   $words = explode(' ', $string, ($word_limit + 1));

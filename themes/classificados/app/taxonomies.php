@@ -10,3 +10,15 @@ function create_categoria_taxonomy() {
 		)
 	);
 }
+
+
+function create_fabricante_taxonomy() {
+    register_taxonomy(
+        'manufacturer',
+        'veiculo',
+        array(
+            'label'        => 'Fabricante',
+            'hierarchical' => true,
+        )
+    );
+}
