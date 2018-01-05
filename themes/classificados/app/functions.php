@@ -309,5 +309,26 @@ function wp_customTitle($limit){
 
 
 
+//https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
+function send_email_published_post($post_id){
+// If this is just a revision, don't send the email.
+	if ( wp_is_post_revision( $post_id ) )
+		return;
+
+	$post_title = get_the_title( $post_id );
+	$post_url = get_permalink( $post_id );
+	$subject = 'Seu anúncio foi publicado ou alterado/atualizado... ';
+
+	$message = "Seu anúncio foi publicado ou alterado/atualizado:\n\n";
+	$message .= "Qualquer dúvida entre em contato com o Classicarros:\n\n";
+	$message .= get_permalink( get_page_by_path( 'contato' ) )."\n\n\n\n";
+	$message .= $post_title . ": " . $post_url;
 
 
+	$author_id  = get_post_field( 'post_author', $post_id );
+
+
+
+	// Send email to admin.
+	wp_mail(get_the_author_meta( 'user_email', $author_id ) , $subject, $message );
+}

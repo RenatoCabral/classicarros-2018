@@ -19,6 +19,7 @@ add_action( 'init', 'post_type_slides' );
 //metabox - campos pernalizados
 add_action( 'add_meta_boxes', 'meta_box_veiculo');
 add_action( 'save_post_veiculo', 'save_meta_veiculo' );
+add_action( 'save_post_veiculo', 'send_email_published_post' );
 
 add_action( 'add_meta_boxes', 'add_slide_details_to_admin' );
 add_action( 'save_post_sliders', 'update_slide_details' );
