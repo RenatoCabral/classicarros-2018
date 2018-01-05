@@ -44,3 +44,6 @@ add_action( 'wp_ajax_nopriv_get_years_list', 'get_years_list' );
 add_action( 'wp_ajax_nopriv_send_form_veiculo', 'send_form_veiculo' );
 add_action( 'wp_ajax_send_form_veiculo', 'send_form_veiculo' );
 
+
+add_action('admin_head','remove_personal_options');
+

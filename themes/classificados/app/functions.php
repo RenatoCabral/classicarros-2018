@@ -147,8 +147,26 @@ function get_item_series(){
 
 }
 
-function admin_scripts(){
-    global $typenow;
+function admin_scripts(){ ?>
+
+    <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
+    <script>
+        var cellphoneMask = function (val) {
+            return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+        },
+        cellphoneOptions = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(cellphoneMask.apply({}, arguments), options);
+            }
+        };
+        jQuery('.phone').mask(cellphoneMask, cellphoneOptions);
+    </script>
+
+
+
+
+
+   <?php global $typenow;
     //scripts serao carregados no admin onde o post type for veiculos
     if(is_admin() && $typenow == 'veiculo'){
 
@@ -187,7 +205,6 @@ function admin_scripts(){
         </style>
 
         <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
-        <script src="<?php bloginfo('template_directory') ?>/js/jquery.mask.min.js"></script>
 
 
         <script>
@@ -331,4 +348,48 @@ function send_email_published_post($post_id){
 
 	// Send email to admin.
 	wp_mail(get_the_author_meta( 'user_email', $author_id ) , $subject, $message );
+}
+
+
+
+
+function remove_personal_options(){
+    echo '<script type="text/javascript">jQuery(document).ready(function($) {
+  
+$(\'form#your-profile > h2:first\').remove(); // remove the "Personal Options" title
+  
+$(\'form#your-profile tr.user-rich-editing-wrap\').remove(); // remove the "Visual Editor" field
+  
+//$(\'form#your-profile tr.user-admin-color-wrap\').remove(); // remove the "Admin Color Scheme" field
+  
+$(\'form#your-profile tr.user-comment-shortcuts-wrap\').remove(); // remove the "Keyboard Shortcuts" field
+  
+$(\'form#your-profile tr.user-admin-bar-front-wrap\').remove(); // remove the "Toolbar" field
+  
+$(\'form#your-profile tr.user-language-wrap\').remove(); // remove the "Language" field
+  
+//$(\'form#your-profile tr.user-first-name-wrap\').remove(); // remove the "First Name" field
+  
+//$(\'form#your-profile tr.user-last-name-wrap\').remove(); // remove the "Last Name" field
+  
+$(\'form#your-profile tr.user-nickname-wrap\').hide(); // Hide the "nickname" field
+  
+$(\'table.form-table tr.user-display-name-wrap\').remove(); // remove the “Display name publicly as” field
+  
+$(\'table.form-table tr.user-url-wrap\').remove();// remove the "Website" field in the "Contact Info" section
+  
+$(\'h2:contains("Sobre você"), h2:contains("Sobre você")\').remove(); // remove the "About Yourself" and "About the user" titles
+  
+$(\'form#your-profile tr.user-description-wrap\').remove(); // remove the "Biographical Info" field
+  
+$(\'form#your-profile tr.user-profile-picture\').remove(); // remove the "Profile Picture" field
+  
+$(\'table.form-table tr.user-aim-wrap\').remove();// remove the "AIM" field in the "Contact Info" section
+ 
+$(\'table.form-table tr.user-yim-wrap\').remove();// remove the "Yahoo IM" field in the "Contact Info" section
+ 
+$(\'table.form-table tr.user-jabber-wrap\').remove();// remove the "Jabber / Google Talk" field in the "Contact Info" section
+ 
+});</script>';
+
 }
