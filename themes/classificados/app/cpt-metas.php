@@ -28,13 +28,15 @@ function render_data_meta_box() {
 	$fuel         = get_post_meta( $post_id, 'fuel', true );
 	$exchange     = get_post_meta( $post_id, 'exchange', true );
 	$conservation = get_post_meta( $post_id, 'conservation', true );
-	$final_place  = get_post_meta( $post_id, 'final_place', true );
+	$place        = get_post_meta( $post_id, 'place', true );
 	$motor        = get_post_meta( $post_id, 'motor', true );
 	$model        = get_post_meta( $post_id, 'model', true );
+    $renavam      = get_post_meta( $post_id, 'renavam', true );
 
 
 
-	include "partials/admin/detalhes-veiculo.php";
+
+    include "partials/admin/detalhes-veiculo.php";
 
 }
 
@@ -104,10 +106,11 @@ function save_meta_veiculo( $post_id ) {
 	update_post_meta( $post_id, 'color', $_POST['color'] );
 	update_post_meta( $post_id, 'fuel', $_POST['fuel'] );
 	update_post_meta( $post_id, 'conservation', $_POST['conservation'] );
-	update_post_meta( $post_id, 'final_place', $_POST['final_place'] );
+	update_post_meta( $post_id, 'place', $_POST['place'] );
 	update_post_meta( $post_id, 'motor', $_POST['motor'] );
 	update_post_meta( $post_id, 'model', $_POST['model'] );
 	update_post_meta( $post_id, 'obs', $_POST['obs'] );
+    update_post_meta( $post_id, 'renavam', $_POST['renavam'] );
     update_post_meta( $post_id, 'cidade', $_POST['cidade'] );
     update_post_meta( $post_id, 'estado', $_POST['estado'] );
 

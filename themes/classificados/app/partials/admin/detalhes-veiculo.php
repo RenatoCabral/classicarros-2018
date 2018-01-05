@@ -72,7 +72,13 @@ $conservations = get_conservations();
 </p>
 
 <p class="item-detalhes">
-    <label>Final Placa</label>
-    <input type="text" name="final_place" placeholder="8" required value="<?= $final_place ?>">
+    <label>Placa</label>
+    <input type="text" name="place" required value="<?= $place ?>">
 </p>
+
+<p class="item-detalhes">
+    <label>Renavam</label>
+    <input type="number" name="renavam" required value="<?= $renavam ?>">
+</p>
+
 

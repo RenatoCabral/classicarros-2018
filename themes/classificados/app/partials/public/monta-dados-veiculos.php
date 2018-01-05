@@ -9,13 +9,30 @@ $doors        = get_post_meta( $post_id, 'doors', true );
 $fuel         = get_post_meta( $post_id, 'fuel', true );
 $exchange     = get_post_meta( $post_id, 'exchange', true );
 $conservation = get_post_meta( $post_id, 'conservation', true );
-$final_place  = get_post_meta( $post_id, 'final_place', true );
+$place        = get_post_meta( $post_id, 'place', true );
 $motor        = get_post_meta( $post_id, 'motor', true );
 $fabricante   = get_post_meta( $post_id, 'manufacturer', true );
 $model        = get_post_meta( $post_id, 'model', true );
 $obs          = get_post_meta( $post_id, 'obs', true );
-$uf           = get_post_meta( $post_id, 'uf', true );
-$city         = get_post_meta( $post_id, 'city', true );
+
+$uf_id           = get_post_meta( $post_id, 'br_la_state', true );
+$uf_id = !empty($uf_id) ? $uf_id : '';
+$uf = "";
+$city = "";
+
+if(!empty($uf_id)){
+    global $wpdb;
+    $tablename = $wpdb->prefix . 'br_la_state';
+    $sql_uf = "SELECT nome from $tablename where id = $uf_id";
+    $uf   = $wpdb->get_results( $sql_uf );
+    $city           = get_post_meta( $post_id, 'br_la_city', true );
+}
+
+
+
+
+
+
 
 
 /*a função get_the_terms recupera os termos da taxonomia que foi anexada, incluida a publicação*/

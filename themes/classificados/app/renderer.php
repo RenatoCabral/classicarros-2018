@@ -71,9 +71,20 @@ function display_itens_de_serie( $post_id ) {
 
 }
 
-function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ) { ?>
+function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ) { ?>
+
 
     <div class="col s12 m12 l12">
+
+        <?php if ( ! empty( $uf && $city ) ) { ?>
+
+            <div class=" col s12 m4 l6 vehicle-details">
+
+                <img src="<?= get_bloginfo('template_url') ?>/img/icon-small-calendar-32.png" class="vehicle-details-icon responsive-img">
+                <p class="icon-text">Localização: <b><?= $city .' - ' .$uf[0]->nome ?></b></p>
+
+            </div>
+        <?php } ?>
 
         <div class=" col s12 m4 l6 vehicle-details">
 
@@ -127,18 +138,19 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
         <?php }
         if ( ! empty( $conservation ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
-                <img src="<?= get_bloginfo('template_url') ?>/img/icon-car-compact-32.png" class="vehicle-details-icon responsive-img">
+                <img src="<?= get_bloginfo('template_url') ?>/img/icon-conservation-car-32.png" class="vehicle-details-icon responsive-img">
                 <p class="icon-text">Conservação: <b><?= $conservation ?></b></p>
 
             </div>
         <?php }
-        if ( ! empty( $final_place ) ) { ?>
+        if ( ! empty( $place ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
                 <img src="<?= get_bloginfo('template_url') ?>/img/icon-placa-32.png" class="vehicle-details-icon responsive-img">
-                <p class="icon-text">Final Placa: <b><?= $final_place ?></b></p>
+                <p class="icon-text">Placa: <b><?= $place ?></b></p>
 
             </div>
         <?php }
+
         if ( ! empty( $motor ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
                 <img src="<?= get_bloginfo('template_url') ?>/img/icon-motor-32.png" class="vehicle-details-icon responsive-img">
@@ -164,7 +176,7 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
         <?php }
         if (  $categoria != '' ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
-                <img src="<?= get_bloginfo('template_url') ?>/img/icon-sports-car-32.png" class="vehicle-details-icon responsive-img">
+                <img src="<?= get_bloginfo('template_url') ?>/img/icon-category-car-32.png" class="vehicle-details-icon responsive-img">
                 <p class="icon-text">Categoria: <b><?= $categoria ?></b></p>
 
             </div>

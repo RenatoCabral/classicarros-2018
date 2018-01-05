@@ -19,7 +19,7 @@ setPostViews( $post_id );
 
                     <?php
                     $categoria  = is_array( $categorias ) ? $categorias[0]->name : '';
-                    display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $final_place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ); ?>
+                    display_details( $year, $km, $color, $doors, $fuel, $exchange, $conservation, $place, $motor, $post_id, $fabricante, $model, $uf, $city, $categoria ); ?>
                 </div>
                 <div class="col s12 m12 l6">
                     <?php display_gallery($post_id); ?>
