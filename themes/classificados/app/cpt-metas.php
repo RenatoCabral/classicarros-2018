@@ -108,6 +108,8 @@ function save_meta_veiculo( $post_id ) {
 	update_post_meta( $post_id, 'motor', $_POST['motor'] );
 	update_post_meta( $post_id, 'model', $_POST['model'] );
 	update_post_meta( $post_id, 'obs', $_POST['obs'] );
+    update_post_meta( $post_id, 'cidade', $_POST['cidade'] );
+    update_post_meta( $post_id, 'estado', $_POST['estado'] );
 
 
 	$items = get_item_series();

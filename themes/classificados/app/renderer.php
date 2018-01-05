@@ -27,22 +27,6 @@ function render_slide_home() {
 function render_blog( $img_src ) {
     ?>
 
-    <!--    <div class="col s12 m12 l3">-->
-    <!--        <div class="card medium z-depth-1 cards_news_home">-->
-    <!--            <div class="card-image waves-effect waves-block waves-light">-->
-    <!--                <a href="--><?php //the_permalink(); ?><!--">-->
-    <!--                    <img src="--><?//= $img_src ?><!--" class="responsive-img">-->
-    <!--                </a>-->
-    <!--            </div>-->
-    <!--            <div class="card-content news_paragraph">-->
-    <!--                <span class="card-title activator grey-text text-darken-4">-->
-    <!--                    <a href="--><?php //the_permalink(); ?><!--"></a>-->
-    <!--	                --><?php //the_title(); ?>
-    <!--                </span>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
     <div class="col s12 m6 l4">
         <span class="card-title title-post-news">
              <a class="header" href="<?php the_permalink(); ?>">
@@ -185,16 +169,16 @@ function display_details( $year, $km, $color, $doors, $fuel, $exchange, $conserv
 
             </div>
         <?php }
-        if ( ! empty( $uf ) ) { ?>
+        if ( ! empty( $estado ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
                 <img src="<?= get_bloginfo('template_url') ?>/img/icon-uf-32.png" class="vehicle-details-icon responsive-img">
-                <p class="icon-text">Estado: <b><?= $uf ?></b></p>
+                <p class="icon-text">Estado: <b><?= $estado ?></b></p>
             </div>
         <?php }
-        if ( ! empty( $city ) ) { ?>
+        if ( ! empty( $cidade ) ) { ?>
             <div class=" col s12 m4 l6 vehicle-details">
                 <img src="<?= get_bloginfo('template_url') ?>/img/icon-city-32.png" class="vehicle-details-icon responsive-img">
-                <p class="icon-text">Cidade: <b><?= $city ?></b></p>
+                <p class="icon-text">Cidade: <b><?= $cidade ?></b></p>
             </div>
         <?php }?>
     </div>

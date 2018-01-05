@@ -13,7 +13,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
 
 ?>
 
-<div class="col s6 m6 l3 div-card-vehicles">
+<div class="col s6 m4 l2 div-card-vehicles">
 
     <div class="card z-depth-1 card-vehicles">
         <div class="card-image card-image-vehicles">

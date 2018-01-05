@@ -31,8 +31,6 @@ $motors        = get_motors();
 $fuels         = get_fuels();
 $exchanges     = get_exchanges();
 $conservations = get_conservations();
-
-
 ?>
 
 
