@@ -393,3 +393,7 @@ add_action('admin_footer', function() {
 </script>
 <?php
 });
+
+function render_category_dropdown_filter( $post_type, $tax, $title ) {
+	require 'partials/public/item-form-filter-category.php';
+}
