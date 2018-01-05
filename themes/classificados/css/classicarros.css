@@ -863,7 +863,6 @@ select {
 
 }
 
-
 .input-searchform{
     margin-top: 0;
 }
@@ -913,9 +912,9 @@ select {
     -moz-border-radius: 10em;
     border-radius: 10em;
 
-    /*-webkit-transition: all .5s;*/
-    /*-moz-transition: all .5s;*/
-    /*transition: all .5s;*/
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
 }
 
 #searchform-blog input[type=search]:focus {

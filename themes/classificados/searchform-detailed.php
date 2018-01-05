@@ -17,9 +17,8 @@ if(is_home() || is_singular('veiculo')){
             <input type="hidden" name="post_type"value="veiculo">
             <input type="hidden" name="search-type" value="detailed">
 
-<!--            <div><!--class="div-item-input-search-form"-->
-
-                <div class="col s12 m6 l2">
+            <div class="row col s12 m12 l2">
+                <div>
 
                     <?php
                     wp_dropdown_categories(
@@ -36,20 +35,23 @@ if(is_home() || is_singular('veiculo')){
 
                     ?>
                 </div>
-
-                <div class="col s12 m6 l2">
+            </div>
+            <div class="row col s12 m12 l2">
+                <div>
                     <select name="model" id="Select-Modelo" class="select-searchform">
                         <option value="">Modelos</option>
                     </select>
                 </div>
-
-                <div class="col s12 m6 l2">
+            </div>
+            <div class="row col s12 m12 l2">
+                <div>
                     <select name="year" id="Select-Ano" class="select-searchform">
                         <option value="">Ano</option>
                     </select>
                 </div>
-
-                <div class="col s12 m6 l2">
+            </div>
+            <div class="row col s12 m12 l2">
+                <div>
                     <select name="pricemax" id="pricemax" class="select-searchform">
                         <option value="">Valor Máximo</option>
                         <option value="20000">até R$ 20.000</option>
@@ -59,18 +61,21 @@ if(is_home() || is_singular('veiculo')){
                         <option value="999999">+ que R$ 50.000</option>
                     </select>
                 </div>
-
-                <div class="input-field input-searchform col s12 m6 l2">
+            </div>
+            <div class="row col s12 m12 l2">
+                <div class="input-field input-searchform">
                     <input id="code" name="code" type="text" class="validate">
                     <label for="code">Código: </label>
                 </div>
-
-                <div class="input-searchform col s12 m6 l2 btn_basic_search">
+            </div>
+            <div class="row col s12 m12 l2">
+                <div class="input-searchform btn_basic_search">
                     <button class="btn waves-effect waves-light" type="submit">Buscar
                         <i class="material-icons right">search</i>
                     </button>
                 </div>
-<!--            </div>-->
+            </div>
+
         </form>
     </div>
 </div>
