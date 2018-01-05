@@ -295,34 +295,15 @@ function get_valid_cities_by_state_id() {
 }
 
 
-//TODO: refatorar essas 3 funcoes de limitacao de palavras. Tem que existir apenas 1.
 
-function limit_words($string, $word_limit) {
-  $words = explode(' ', $string, ($word_limit + 1));
-  if(count($words) > $word_limit) { array_pop($words); array_push($words, "..."); }
-  return implode(' ', $words);
+function limit_character($string, $max) {
+  if ( strlen( $string ) > $max ) {
+		return substr( $string, 0, $max ) . " &hellip;";
+	} else {
+		return $string;
+	}
 }
 
-//limitar caracteres título post noticias
-
-function wp_customTitle($limit){
-    $title = get_the_title(isset($post->ID));
-    if (strlen($title) > $limit){
-        $title = substr($title, 0, $limit) . '...';
-    }
-    echo $title;
-}
-
-
-////limitar caracteres título post veiculos
-//
-//function wp_customTitleVehicles($limit){
-//    $title = get_the_title(isset($post->ID));
-//    if (strlen($title) > $limit){
-//        $title = substr($title, 0, $limit) . '...';
-//    }
-//    echo $title;
-//}
 
 
 
@@ -393,3 +374,22 @@ $(\'table.form-table tr.user-jabber-wrap\').remove();// remove the "Jabber / Goo
 });</script>';
 
 }
+
+
+add_action('admin_footer', function() {
+?>
+<script type="text/javascript">
+     jQuery('#publish, #save-post').click(function(e){
+        if(jQuery('#taxonomy-categoria input:checked').length==0 || jQuery('#taxonomy-manufacturer input:checked').length==0){
+            alert('Categoria e Fabricante são obrigatórios');
+            e.stopImmediatePropagation();
+            return false;
+        }else{
+            return true;
+        }
+    });
+
+
+</script>
+<?php
+});

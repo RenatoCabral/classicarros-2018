@@ -27,28 +27,29 @@ function render_slide_home() {
 function render_blog( $img_src ) {
     ?>
 
-    <div class="col s12 m6 l4">
-        <span class="card-title title-post-news">
-             <a class="header" href="<?php the_permalink(); ?>">
-                 <?php wp_customTitle(40); ?>
-             </a>
-        </span>
-        <div class="card horizontal z-depth-1 cards_news_home">
-            <div class="card-image image-post-blog waves-effect waves-block waves-light">
-                <a href="<?php the_permalink(); ?>">
-                    <img class="img-responsive" src="<?= $img_src ?>">
-                </a>
-            </div>
-            <div class="card-stacked">
-                <div class="card-content card-content-blog">
-                    <p><?= get_the_date(); ?></p>
+        <div class="col s12 m6 l4">
+            <span class="card-title title-post-news">
+                 <a class="header" href="<?php the_permalink(); ?>">
+                    <?= limit_character(get_the_title(),50); ?>
+                 </a>
+            </span>
+            <div class="card horizontal z-depth-1 cards_news_home">
+                <div class="card-image image-post-blog waves-effect waves-block waves-light">
                     <a href="<?php the_permalink(); ?>">
-                        <?php echo(limit_words(get_the_content(),17)); ?>
+                        <img class="img-responsive" src="<?= $img_src ?>">
                     </a>
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content card-content-blog">
+                        <p><?= get_the_date(); ?></p>
+                        <a href="<?php the_permalink(); ?>">
+                            <?= limit_character(get_the_content(),200); ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
     <?php
 }

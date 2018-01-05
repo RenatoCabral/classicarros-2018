@@ -3,7 +3,7 @@
 $post_id    = get_the_ID();
 $price      = get_post_meta( $post_id, 'price', true );
 $km         = get_post_meta( $post_id, 'km', true );
-$fabricante = get_post_meta( $post_id, 'manufacturer', true );
+$fabricante = get_the_terms($post_id, 'manufacturer');
 $year       = get_post_meta( $post_id, 'year', true );
 
 
@@ -13,7 +13,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
 
 ?>
 
-<div class="col s6 m4 l2 div-card-vehicles">
+<div class="col s12 m6 l3 div-card-vehicles">
 
     <div class="card z-depth-1 card-vehicles">
         <div class="card-image card-image-vehicles">
@@ -29,10 +29,12 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
             <a class="dados-veiculos" href="<?php the_permalink() ?>">
                 <p class="cod-vehicle">Cod. <?= $post_id ?></p>
                 <p class="price">R$ <?= number_format((float) $price, 2, ',','.') ?></p>
-<!--                <p class="card-content-title">--><?//= the_title() ?><!--</p>-->
-                <p class="card-content-title"><?php wp_customTitle(15); ?></p>
+                    <p class="card-content-title"> <?= limit_character(get_the_title(), 25); ?></p>
+
                 <p><?= $km ?> Km</p>
-                <p><?= $fabricante ?> - <?= $year ?></p>
+                <p>
+                    <?= !empty($fabricante) ? $fabricante[0]->name . ' - ' : '' ?>
+                    <?= $year ?></p>
             </a>
         </div>
     </div>
