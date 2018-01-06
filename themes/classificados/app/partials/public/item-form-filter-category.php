@@ -2,6 +2,7 @@
     <div class="div col s12 m6 l3 push-l3 teste">
         <select class="select-searchform" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
             <option value=""><?= $title ?></option>
+
             <option value="<?= get_post_type_archive_link( $post_type ) ?>">Todos</option>
             <?php
             $categories = get_terms( $tax );

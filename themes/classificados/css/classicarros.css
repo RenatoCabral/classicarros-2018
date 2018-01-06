@@ -740,6 +740,16 @@ select {
     color: #1d7d74;
 }
 
+.message{
+    height: 50px;
+}
+
+#log{
+    text-align: center;
+    font-size: 20px;
+    color: #1d7d74;
+}
+
 /*Contact Form 7*/
 .screen-reader-response, .wpcf7-not-valid-tip {
     display: none;
