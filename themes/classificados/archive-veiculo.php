@@ -4,16 +4,16 @@
         <div class="row">
             <h1 class="title_news title-archive">Veículos</h1>
 
-            <div class="row">
-                <div class="box-filter-category">
-                    <div class="col s12 m6 l2">
+            <div class="col s12 m6 l12 search-category-manufacturer">
+                <!--                <div class="box-filter-category pink">-->
+                <!--                    <div class="col s12 m6 l2 orange">-->
 
-                    <?php
-                    render_category_dropdown_filter( 'veiculo', 'categoria', 'Categoria' );
-                    render_category_dropdown_filter( 'veiculo', 'manufacturer','Fabricante' );
-                    ?>
-                    </div>
-                </div>
+                <?php
+                render_category_dropdown_filter( 'veiculo', 'categoria', 'Categoria' );
+                render_category_dropdown_filter( 'veiculo', 'manufacturer','Fabricante' );
+                ?>
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
 
             <div class="col s12 m12 l12 list-featured-vehicles">

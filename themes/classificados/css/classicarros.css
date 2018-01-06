@@ -548,6 +548,10 @@ select {
     line-height: 20px;
 }
 
+.search-category-manufacturer{
+    margin-bottom: 20px!important;
+}
+
 /*****************tab +informações*******************/
 .container-tabs-form {
     min-height: 630px;
@@ -837,6 +841,11 @@ select {
     -moz-border-radius: 20px;
     border-radius: 20px;
     padding: 4px 12px;
+    text-align: center;
+}
+
+.select2-search--dropdown{
+    text-align: center!important;
 }
 
 .select2-results {
@@ -1023,10 +1032,6 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
 }
 .form-error{
     color: red !important;
-}
-
-.box-filter-category{
-
 }
 
 /*****************************media queries*************************/
