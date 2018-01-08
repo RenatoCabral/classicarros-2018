@@ -124,6 +124,7 @@ function get_item_series(){
         'farol_de_milha_neblina' => 'Farol de Milha e Neblina',
         'farol_de_neblina' => 'Farol de Neblina',
         'farol_de_xenonio' => 'Farol de Xenônio',
+        'farol de led' => 'Farol de Led',
         'freios_abs' => 'Freios ABS',
         'insulfilme' => 'Insulfilme',
         'limpador_traseiro' => 'Limpador Traseiro',

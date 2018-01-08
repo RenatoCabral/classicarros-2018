@@ -3,21 +3,18 @@
     <div class="container-fluid">
         <div class="row">
             <h1 class="title_news title-archive">Veículos</h1>
-
+            <?php get_template_part('searchform-detailed'); ?>
+            <br>
             <div class="col s12 m6 l12 search-category-manufacturer">
-                <!--                <div class="box-filter-category pink">-->
-                <!--                    <div class="col s12 m6 l2 orange">-->
 
                 <?php
                 render_category_dropdown_filter( 'veiculo', 'categoria', 'Categoria' );
                 render_category_dropdown_filter( 'veiculo', 'manufacturer','Fabricante' );
                 ?>
-                <!--                    </div>-->
-                <!--                </div>-->
+
             </div>
 
             <div class="col s12 m12 l12 list-featured-vehicles">
-
 
                 <?php
                 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;

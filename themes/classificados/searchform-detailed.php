@@ -75,7 +75,6 @@ if(is_home() || is_singular('veiculo')){
                     </button>
                 </div>
             </div>
-
         </form>
     </div>
 </div>

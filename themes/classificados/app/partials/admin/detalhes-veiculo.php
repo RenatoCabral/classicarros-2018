@@ -79,6 +79,9 @@ $conservations = get_conservations();
 <p class="item-detalhes">
     <label>Renavam</label>
     <input type="number" name="renavam" required value="<?= $renavam ?>">
+    <br>
+    <small>O número do Renavam não é publicado. O ranevam será utilizado juntamente
+        com a placa para verificar a situação do veículo antes do administrador publicar seu anúncio.</small>
 </p>
 
 

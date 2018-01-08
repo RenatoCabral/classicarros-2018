@@ -19,15 +19,13 @@ function send_form_veiculo(){
     $message .='<p><strong>Detalhe da Proposta/Interesse: </strong>'.$details.' </p>';
     $message .='<p><strong>URL do Veículo: </strong>'.$url.'</p>';
 
-
-
     if ( ! wp_mail( $to, $subject, $message ) ) {
       echo '<p class="form-error">Erro ao enviar, verifique os dados</p>';
     } else {
         echo '<p class="form-ok">Formulário enviado com sucesso!';
     }
 
-
     die();
-
 }
+
+
