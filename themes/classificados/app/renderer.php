@@ -48,6 +48,8 @@ function render_blog( $img_src ) {
     <?php
 }
 
+
+
 function display_itens_de_serie( $post_id ) {
 
 

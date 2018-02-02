@@ -5,12 +5,7 @@
             <h5 class="card-title content-fipe-home">Tabela FIPE</h5>
             <p class="content-fipe-home">Veja o preço do veículo que você deseja comprar ou vender!</p>
         </div>
-        <a class="waves-effect waves-light btn btn-consulta-fipe-card" href="http://veiculos.fipe.org.br/" target="_blank"">Consulte agora</a>
-        <!--        <div class="card-action">-->
-        <!--            <a href="#">Contato</a>-->
-        <!--            <a href="#">Dúvidas frequentes</a>-->
-        <!--        </div>-->
+        <a class="waves-effect waves-light btn btn-consulta-fipe-card" href="http://veiculos.fipe.org.br/" target="_blank">Consulte agora</a>
+
     </div>
 </div>
-
-

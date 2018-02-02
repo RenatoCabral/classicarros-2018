@@ -12,21 +12,32 @@ $query = new WP_Query([
 
 
 if($query->have_posts()){ ?>
-    <div class="col s12 m6 l9">
+    <div class="col s12 m12 l12">
             <h5 class="title_news">Blog</h5>
             <?php while ($query->have_posts()) {
                 $query->the_post();
-                /*comando abaixo irá retornar a URL da imagem para a publicação,
-                foi passado como parametro a função get_the_ID() que irá recuperar o ID da imagem no loop,
-                informado também a descrição da função das medidas padrão..*/
+
                 $img_src = get_the_post_thumbnail_url(get_the_ID(), 'thumb-news');
+?>
+                <div class="col s12 m6 l4 div-card-vehicles">
+                    <div class="card z-depth-1 card-vehicles">
+                        <div class="card-image card-image-vehicles">
+                            <a href="<?php the_permalink() ?>">
+                                <img src="<?= $img_src ?>">
+                            </a>
 
+                        </div>
+                        <div class="card-content card-content-blog">
+                            <a class="dados-veiculos" href="<?php the_permalink() ?>">
+                              <p><?= get_the_date() ?></p>
+                                <p class="card-content-title"> <?= limit_character(get_the_title(),70); ?></p>
 
-                /*Função responsável por estar exibindo todos post de noticias. A função recebe como
-                parametro a variavel $img_src.*/
-                    render_blog($img_src);
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-            } ?>
+          <?php  } ?>
             <div class="box-view-more-button-news-home">
                 <!--redireciona para a página de noticias.-->
                 <a href="<?= get_post_type_archive_link('blog'); ?>" class="waves-effect waves-light btn-large">Ver Mais</a>

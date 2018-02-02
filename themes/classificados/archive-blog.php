@@ -22,6 +22,8 @@
             $thumb_url = wp_get_attachment_image_src( $thumb_id, 'thumb-news' );
             $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_directory' ) . "/img/no-image-veiculo-thumb.jpg";
 
+
+
             render_blog( $img_src );
 
           }  ?>
