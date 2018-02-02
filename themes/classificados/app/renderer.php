@@ -49,7 +49,6 @@ function render_blog( $img_src ) {
 }
 
 
-
 function display_itens_de_serie( $post_id ) {
 
 
@@ -267,7 +266,7 @@ function render_outros_veiculos( $post_id, $term ) {
     $query = new WP_Query( [
         'post_type'      => 'veiculo',
         'post_status'    => 'publish',
-        'posts_per_page' => 4,
+        'posts_per_page' => 6,
         'post__not_in'   => [ $post_id ],
         'tax_query'      => [
             [
@@ -313,14 +312,15 @@ function render_most_viewed() {
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col s12 m12 l12 list-featured-vehicles">
+                <div class="col s12 m12 l12">
                     <?php while ( $query->have_posts() ) {
                         $query->the_post();
                         require 'partials/public/item-featured-vehicles.php';
                     } ?>
-
+<div class="box-view-more-button-news-home">
                     <a href="<?= get_post_type_archive_link( 'veiculo' ) ?>"
                        class="waves-effect waves-light btn-large view-more-button">Ver Mais</a>
+                     </div>
                 </div>
             </div>
         </div>
