@@ -288,6 +288,10 @@ select {
     padding: 20px;
 }
 
+.title-news-date h1{
+  font-weight: normal;
+}
+
 .btn_basic_search {
     padding-top: 18px !important;
 }
@@ -424,7 +428,9 @@ select {
     color: #1d7d74!important;
 
 }
-
+.card-content-blog{
+  min-height: 80px !important;
+}
 .price {
     color: #26a69a !important;
     font-size: 18px;
@@ -653,6 +659,7 @@ select {
 .div-single-date p {
     margin: 0;
     padding-top: 3px;
+    width: 190px;
 }
 
 .content-single-news img {
@@ -1053,6 +1060,12 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
     }
 }
 
+@media only screen and (max-width: 900px) {
+.card-content-blog{
+  height: 110px !important;
+}
+}
+
 /* Small Devices, Tablets */
 @media only screen and (max-width: 800px) {
     .button_drop {
@@ -1060,6 +1073,8 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
     }
 
 }
+
+
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 600px) {
@@ -1110,10 +1125,3 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
         margin-top: 12px !important;
     }
 }
-
-
-
-
-
-
-

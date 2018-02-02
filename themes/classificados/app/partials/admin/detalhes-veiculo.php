@@ -74,14 +74,14 @@ $conservations = get_conservations();
 <p class="item-detalhes">
     <label>Placa</label>
     <input type="text" name="place" required value="<?= $place ?>">
+    <br>
+    <small>Por Favor, informe a placa completa, ex: ABC1234.</small>
 </p>
 
 <p class="item-detalhes">
     <label>Renavam</label>
     <input type="number" name="renavam" required value="<?= $renavam ?>">
     <br>
-    <small>O número do Renavam não é publicado. O ranevam será utilizado juntamente
+    <small>O número do Renavam não é publicado. O renavam será utilizado juntamente
         com a placa para verificar a situação do veículo antes do administrador publicar seu anúncio.</small>
 </p>
-
-

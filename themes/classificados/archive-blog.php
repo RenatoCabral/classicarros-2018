@@ -1,38 +1,42 @@
 <?php get_header(); ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <h1 class="title-archive title_news ">Blog</h1>
-            <br><br>
-            <div class="div-searchform-blog">
-                <?php get_search_form(); ?>
-            </div>
-            <div class="col s12 m12 l12 list-featured-vehicles">
-                <?php
-                if ( ! have_posts() ) {
-                    echo '<p> Sem notícias no momento </p>';
-                } else {
-                    $count =  0;
-                    ?>
-                    <div class="row">
-                        <?php while ( have_posts() ) {
-                        the_post();
-                        if($count == 3){
-                                $count = 0; ?>
-                                </div>
-                                <div class="row">
-                            <?php }
-                        $img_src = get_the_post_thumbnail_url( get_the_ID(), 'thumb-news' );
-                        render_blog( $img_src ); ?>
-                        <?php $count +=1;
-                    } ?>
-                    </div>
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="title_news title-archive">Blog</h1>
+      <div class="col s12 m12 l12 list-featured-vehicles">
+        <?php  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
-                <?php }
+          $query = new WP_Query( [
+              'post_type'      => 'blog',
+              // 'posts_per_page' => 3, qtd de posts está na funcao my_post_count_queries()
+              'post_status'    => 'publish',
+                'paged'          => $paged
 
-                post_pagination(); ?>
-            </div>
+          ]);
 
-        </div>
+        if($query->have_posts()){
+          while ( $query->have_posts() ) {
+            $query->the_post();
+
+            $thumb_id  = get_post_thumbnail_id( get_the_ID() );
+            $thumb_url = wp_get_attachment_image_src( $thumb_id, 'thumb-news' );
+            $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_directory' ) . "/img/no-image-veiculo-thumb.jpg";
+
+            render_blog( $img_src );
+
+          }  ?>
+          <div class="div-pagination">
+            <?php
+             post_pagination();
+
+
+
+              ?>
+           </div>
+        <?php } else {
+            echo '<p>Em Breve.</p>';
+        } ?>
+      </div>
     </div>
+  </div>
 <?php get_footer();

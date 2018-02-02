@@ -28,16 +28,5 @@ if(!empty($uf_id)){
     $city           = get_post_meta( $post_id, 'br_la_city', true );
 }
 
-
-
-
-
-
-
-
 /*a função get_the_terms recupera os termos da taxonomia que foi anexada, incluida a publicação*/
 $categorias = get_the_terms( $post_id, 'categoria' );
-
-
-
-

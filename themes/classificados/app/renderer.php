@@ -27,29 +27,23 @@ function render_slide_home() {
 function render_blog( $img_src ) {
     ?>
 
-        <div class="col s12 m6 l4">
-            <span class="card-title title-post-news">
-                 <a class="header" href="<?php the_permalink(); ?>">
-                    <?= limit_character(get_the_title(),50); ?>
-                 </a>
-            </span>
-            <div class="card horizontal z-depth-1 cards_news_home">
-                <div class="card-image image-post-blog waves-effect waves-block waves-light">
-                    <a href="<?php the_permalink(); ?>">
-                        <img class="img-responsive" src="<?= $img_src ?>">
-                    </a>
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content card-content-blog">
-                        <p><?= get_the_date(); ?></p>
-                        <a href="<?php the_permalink(); ?>">
-                            <?= limit_character(get_the_content(),200); ?>
-                        </a>
-                    </div>
-                </div>
+    <div class="col s12 m6 l4 div-card-vehicles">
+        <div class="card z-depth-1 card-vehicles">
+            <div class="card-image card-image-vehicles">
+                <a href="<?php the_permalink() ?>">
+                    <img src="<?= $img_src ?>">
+                </a>
+
+            </div>
+            <div class="card-content card-content-blog">
+                <a class="dados-veiculos" href="<?php the_permalink() ?>">
+                  <p><?= get_the_date() ?></p>
+                    <p class="card-content-title"> <?= limit_character(get_the_title(),70); ?></p>
+
+                </a>
             </div>
         </div>
-
+    </div>
 
     <?php
 }
@@ -301,7 +295,7 @@ function render_most_viewed() {
     $query = new WP_Query(
         [
             'post_type'      => 'veiculo',
-            'posts_per_page' => 16,
+            'posts_per_page' => 12,
             'orderby'        => 'random',
             'meta_key'       => 'post_views_count',
             'post_status'    => 'publish',

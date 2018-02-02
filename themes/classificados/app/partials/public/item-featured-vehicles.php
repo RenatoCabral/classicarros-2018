@@ -13,7 +13,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
 
 ?>
 
-<div class="col s12 m6 l3 div-card-vehicles">
+<div class="col s12 m3 l2 div-card-vehicles">
     <div class="card z-depth-1 card-vehicles">
         <div class="card-image card-image-vehicles">
             <a href="<?php the_permalink() ?>">
@@ -28,7 +28,7 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
             <a class="dados-veiculos" href="<?php the_permalink() ?>">
                 <p class="cod-vehicle">Cod. <?= $post_id ?></p>
                 <p class="price">R$ <?= number_format((float) $price, 2, ',','.') ?></p>
-                <p class="card-content-title"> <?= limit_character(get_the_title(), 25); ?></p>
+                <p class="card-content-title"> <?= limit_character(get_the_title(),15); ?></p>
                 <p><?= $km ?> Km</p>
                 <p>
                     <?= !empty($fabricante) ? $fabricante[0]->name . ' - ' : '' ?>
@@ -37,4 +37,3 @@ $img_src   = has_post_thumbnail() ? $thumb_url[0] : get_bloginfo( 'template_dire
         </div>
     </div>
 </div>
-

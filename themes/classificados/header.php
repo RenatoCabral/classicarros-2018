@@ -12,6 +12,7 @@
 		?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="<?php bloginfo('template_directory') ?>/img/icon-logo.ico">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/materialize.css" media="screen,projection">
 
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/material-icons.css">
@@ -44,4 +45,3 @@
 if ( class_exists( 'WP_Flash_Messages' ) )
 	WP_Flash_Messages::show();
 ?>
-

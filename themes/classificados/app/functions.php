@@ -51,7 +51,9 @@ function get_motors() {
         '1.0'       => '1.0',
         '1.4'       => '1.4',
         '1.6'       => ' 1.6',
+				'1.8'       => '1.8',
         '2.0'       =>  '2.0',
+				'2.4'       =>  '2.4',
         'Turbo'     =>  'Turbo',
         'V6'        =>  'V6',
         'V8'        =>  'V8',
@@ -81,6 +83,7 @@ function get_exchanges() {
         'Automatico sequencial'    => 'Automatico sequencial',
         'CVT'           => 'CVT',
         'Manual'        => 'Manual',
+				'DualLogic'     => 'DualLogic'
 
     ];
     return $exchanges;
@@ -99,47 +102,48 @@ function get_conservations() {
 function get_item_series(){
 
     $options = [
-        'airbags' => 'Airbags',
-        'airbag_motorista' => 'Airbag Motorista',
-        'alarme' => 'Alarme',
-        'ar_quente' => 'Ar Quente',
-        'ar_condicionado' => 'Ar Condicionado',
-        'banco_eletrico' => 'Banco Elétrico',
-        'banco_couro' => 'Banco Couro',
-        'banco_regulagem_altura' => 'Banco Regulagem Altura',
-        'banco_dianteiro_com_aquecimento' => 'Banco Dianteiro com Aquecimento',
-        'blindagem' => 'Blindagem',
-        'central_multimidia' => 'Central Multimídia',
-        'computador_bordo' => 'Computador Bordo',
-        'controle_tracao' => 'Controle de Tração',
-        'camera_de_re' => 'Câmera de ré',
-        'capota_maritima' => 'Capota Marítima',
-        'cd_mp3_player' => 'CD Mp3 Player',
-        'controle_de_velocidade' => 'Controle de Velocidade',
-        'direcao_hidraulica' => 'Direção Hidráulica',
-        'direcao_eletrica' => 'Direção Elétrica',
-        'desembacador_traseiro' => 'Desembaçador Traseiro',
-        'espelhos_eletricos' => 'Espelhos Elétricos',
-        'farol_de_milha' => 'Farol de Milha',
-        'farol_de_milha_neblina' => 'Farol de Milha e Neblina',
-        'farol_de_neblina' => 'Farol de Neblina',
-        'farol_de_xenonio' => 'Farol de Xenônio',
-        'farol de led' => 'Farol de Led',
-        'freios_abs' => 'Freios ABS',
-        'insulfilme' => 'Insulfilme',
-        'limpador_traseiro' => 'Limpador Traseiro',
-        'piloto_automatico' => 'Piloto Automático',
-        'pneu_reserva' => 'Pneu Reserva(Step)',
-        'rodas_liga_leve' => 'Rodas de Liga Leve',
-        'radio' => 'Rádio',
-        'radio_toca_fitas' => 'Rádio e Toca Fitas',
-        'sensor_estacionamento' => 'Sensor de Estacionamento',
-        'sensor_chuva' => 'Sensor de Chuva',
-        'teto_solar' => 'Teto Solar',
-        'tracao_4x4' => 'Tração 4x4',
-        'travas_eletricas' => 'Travas Elétricas',
-        'vidro_eletrico' => 'Vidro Elétrico',
-        'volante_regulagem_altura' => 'Volante com Regulagem de altura',
+        'Airbags' => 'Airbags',
+        'Airbag_motorista' => 'Airbag Motorista',
+        'Alarme' => 'Alarme',
+        'Ar_quente' => 'Ar Quente',
+        'Ar_condicionado' => 'Ar Condicionado',
+        'Banco_eletrico' => 'Banco Elétrico',
+        'Banco_couro' => 'Banco Couro',
+        'Banco_regulagem_altura' => 'Banco Regulagem Altura',
+        'Banco_dianteiro_com_aquecimento' => 'Banco Dianteiro com Aquecimento',
+        'Blindagem' => 'Blindagem',
+        'Central_multimidia' => 'Central Multimídia',
+        'Computador_bordo' => 'Computador Bordo',
+        'Controle_tracao' => 'Controle de Tração',
+        'Camera_de_re' => 'Câmera de ré',
+        'Capota_maritima' => 'Capota Marítima',
+        'Cd_mp3_player' => 'CD Mp3 Player',
+        'Controle_de_velocidade' => 'Controle de Velocidade',
+        'Direcao_hidraulica' => 'Direção Hidráulica',
+        'Direcao_eletrica' => 'Direção Elétrica',
+        'Desembacador_traseiro' => 'Desembaçador Traseiro',
+        'Espelhos_eletricos' => 'Espelhos Elétricos',
+        'Farol_de_milha' => 'Farol de Milha',
+        'Farol_de_milha_neblina' => 'Farol de Milha e Neblina',
+        'Farol_de_neblina' => 'Farol de Neblina',
+        'Farol_de_xenonio' => 'Farol de Xenônio',
+        'Farol de led' => 'Farol de Led',
+        'Freios_abs' => 'Freios ABS',
+        'Insulfilme' => 'Insulfilme',
+        'Limpador_traseiro' => 'Limpador Traseiro',
+        'Piloto_automatico' => 'Piloto Automático',
+        'Pneu_reserva' => 'Pneu Reserva(Step)',
+        'Rodas_liga_leve' => 'Rodas de Liga Leve',
+        'Radio' => 'Rádio',
+        'Radio_toca_fitas' => 'Rádio e Toca Fitas',
+				'Retrovisor elétrico' => 'Retrovisor elétrico',
+        'Sensor_estacionamento' => 'Sensor de Estacionamento',
+        'Sensor_chuva' => 'Sensor de Chuva',
+        'Teto_solar' => 'Teto Solar',
+        'Tracao_4x4' => 'Tração 4x4',
+        'Travas_eletricas' => 'Travas Elétricas',
+        'Vidro_eletrico' => 'Vidro Elétrico',
+        'Volante_regulagem_altura' => 'Volante com Regulagem de altura',
     ];
 
 
@@ -277,6 +281,61 @@ function post_pagination($pages = '', $range = 2) {
 	}
 }
 
+function my_post_count_queries( $query ) {
+  if (!is_admin() && is_post_type_archive( 'blog' ) ){
+
+       $query->set('posts_per_page', 3);
+
+  }
+}
+add_action( 'pre_get_posts', 'my_post_count_queries' );
+
+function post_pagination_blog(){
+
+	global $wp_query;
+	$pages = $wp_query->max_num_pages;
+
+	if ( $pages > 1 ) {
+		$current_page = max( 1, intval( $wp_query->query_vars['paged'] ) );
+
+		if ( $current_page == 1 ) {
+			echo '<style>
+                    .prev-page{
+                       opacity: 0.3;
+                        cursor: default;
+                        pointer-events: none;
+                    }
+                </style>';
+		}
+
+		if ( $current_page == $pages ) {
+			echo '<style>
+                    .next-page{
+                       opacity: 0.3;
+                        cursor: default;
+                        pointer-events: none;
+                    }
+
+                </style>';
+		}
+
+		echo '<a href="' . get_pagenum_link( $current_page - 1 ) . '" class="transition-300 prev-page page-numbers"><span> < </span></a>';
+
+		echo paginate_links( [
+			'base'      => get_pagenum_link( 1 ) . '%_%',
+			'format'    => '/page/%#%',
+			'current'   => $current_page,
+			'total'     => $pages,
+			'prev_next' => false,
+			'add_args'  => false,
+			'mid_size'  => 2,
+			'show_all'  => false
+		] );
+
+		echo '<a href="' . get_pagenum_link( $current_page + 1 ) . '" class="transition-300 next-page page-numbers"><span> > </span></a>';
+	}
+}
+
 function get_valid_cities_by_state_id() {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'br_la_city';
@@ -337,41 +396,41 @@ function send_email_published_post($post_id){
 
 function remove_personal_options(){
     echo '<script type="text/javascript">jQuery(document).ready(function($) {
-  
+
 $(\'form#your-profile > h2:first\').remove(); // remove the "Personal Options" title
-  
+
 $(\'form#your-profile tr.user-rich-editing-wrap\').remove(); // remove the "Visual Editor" field
-  
+
 //$(\'form#your-profile tr.user-admin-color-wrap\').remove(); // remove the "Admin Color Scheme" field
-  
+
 $(\'form#your-profile tr.user-comment-shortcuts-wrap\').remove(); // remove the "Keyboard Shortcuts" field
-  
+
 $(\'form#your-profile tr.user-admin-bar-front-wrap\').remove(); // remove the "Toolbar" field
-  
+
 $(\'form#your-profile tr.user-language-wrap\').remove(); // remove the "Language" field
-  
+
 //$(\'form#your-profile tr.user-first-name-wrap\').remove(); // remove the "First Name" field
-  
+
 //$(\'form#your-profile tr.user-last-name-wrap\').remove(); // remove the "Last Name" field
-  
+
 $(\'form#your-profile tr.user-nickname-wrap\').hide(); // Hide the "nickname" field
-  
+
 $(\'table.form-table tr.user-display-name-wrap\').remove(); // remove the “Display name publicly as” field
-  
+
 $(\'table.form-table tr.user-url-wrap\').remove();// remove the "Website" field in the "Contact Info" section
-  
+
 $(\'h2:contains("Sobre você"), h2:contains("Sobre você")\').remove(); // remove the "About Yourself" and "About the user" titles
-  
+
 $(\'form#your-profile tr.user-description-wrap\').remove(); // remove the "Biographical Info" field
-  
+
 $(\'form#your-profile tr.user-profile-picture\').remove(); // remove the "Profile Picture" field
-  
+
 $(\'table.form-table tr.user-aim-wrap\').remove();// remove the "AIM" field in the "Contact Info" section
- 
+
 $(\'table.form-table tr.user-yim-wrap\').remove();// remove the "Yahoo IM" field in the "Contact Info" section
- 
+
 $(\'table.form-table tr.user-jabber-wrap\').remove();// remove the "Jabber / Google Talk" field in the "Contact Info" section
- 
+
 });</script>';
 
 }
@@ -380,15 +439,18 @@ $(\'table.form-table tr.user-jabber-wrap\').remove();// remove the "Jabber / Goo
 add_action('admin_footer', function() {
 ?>
 <script type="text/javascript">
-     jQuery('#publish, #save-post').click(function(e){
-        if(jQuery('#taxonomy-categoria input:checked').length==0 || jQuery('#taxonomy-manufacturer input:checked').length==0){
-            alert('Categoria e Fabricante são obrigatórios');
-            e.stopImmediatePropagation();
-            return false;
-        }else{
-            return true;
-        }
-    });
+if(jQuery('#post_type').val()==='veiculo'){
+		jQuery('#publish, #save-post').click(function(e){
+			 if(jQuery('#taxonomy-categoria input:checked').length==0 || jQuery('#taxonomy-manufacturer input:checked').length==0){
+					 alert('Categoria e Fabricante são obrigatórios');
+					 e.stopImmediatePropagation();
+					 return false;
+			 }else{
+					 return true;
+			 }
+	 });
+}
+
 
 
 </script>
