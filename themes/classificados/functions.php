@@ -12,6 +12,7 @@ require 'app/mais-vistos.php';
 require 'app/restrict_user_access.php';
 require 'app/send-form-veiculo.php';
 require 'app/searchform-handlers.php';
+require 'app/custom-functions.php';
 
 
 
