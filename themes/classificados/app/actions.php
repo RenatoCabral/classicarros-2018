@@ -4,6 +4,7 @@ add_filter( 'admin_footer_text', 'change_admin_footer_text' );
 add_filter( 'login_headertitle', 'add_custom_login_logo_url_title' );
 add_filter( 'login_headerurl', 'add_custom_login_logo_url' );
 add_action( 'wp_before_admin_bar_render', 'remove_unused_admin_bar' );
+add_filter( 'intermediate_image_sizes_advanced', 'remove_default_image_sizes' );
 
 add_action( 'pre_get_posts', 'my_post_count_queries' );
 

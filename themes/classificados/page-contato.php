@@ -6,7 +6,7 @@
             <div class="col s12 m12 l6 doubts-title">
                 <div class="row ">
                     <h1><?php the_title(); ?></h1>
-                    <p>Para alguma dúvida, crítica ou sugestão, entre em contato com o ClassiCarros. Teremos o prazer em atendê-lo. </div>
+                    <p class="paragraph-contact">Para alguma dúvida, crítica ou sugestão, entre em contato com o ClassiCarros. Teremos o prazer em atendê-lo. </div>
             </div>
             <div class="col s12 m12 l8">
                 <div class="row">

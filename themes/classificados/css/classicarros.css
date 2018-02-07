@@ -489,6 +489,8 @@ margin-bottom: 50px
     text-decoration: underline;
 }
 
+
+
 /****************Fim footer*****************/
 
 /*********** detalhes dos veiculos**********/
@@ -1066,6 +1068,12 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
 .menu-mobile-responsive{
     float: right;
 }
+
+.paragraph-contact{
+  font-size: 20px;
+  font-weight: normal;
+}
+
 /*****************************media queries*************************/
 
 @media (max-width: 1024px) {

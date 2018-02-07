@@ -12,7 +12,7 @@ function change_login_image() {
                 width: 410px !important;
                 height: 69px !important;
                 background-size: inherit;
-                
+
             }
             body.login a{
                 color: #26a69a !important;
@@ -20,7 +20,7 @@ function change_login_image() {
             body.login #login_error a{
                 color: #26a69a !important;
             }
-            
+
             #dashboard-widgets-wrap{
                 display: none !important;
             }
@@ -52,4 +52,12 @@ function remove_unused_admin_bar() {
 	$wp_admin_bar->remove_menu( 'comments' );
 	$wp_admin_bar->remove_menu( 'updates' );
 	$wp_admin_bar->remove_menu( 'new-content' );
+}
+
+function remove_default_image_sizes( $sizes ) {
+	unset( $sizes['thumbnail'] );
+	unset( $sizes['medium'] );
+	unset( $sizes['large'] );
+
+	return $sizes;
 }
