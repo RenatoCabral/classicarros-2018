@@ -11,7 +11,7 @@ function send_form_veiculo(){
     $to = $_POST['to'];
     $subject = 'Interesse no Veículo '. $title. ' | Classicarros';
 
-    $message = '<h3> Olá, você tem um interesse em um veículo que você publicou no Classicarros!</h3>';
+    $message = '<h3> Olá, alguém está interessado em um veículo que você publicou no Classicarros!</h3>';
     $message .='<p><strong>Nome: </strong>'.$name.' </p>';
     $message .='<p><strong>CPF: </strong>'.$cpf.' </p>';
     $message .='<p><strong>E-mail: </strong>'.$email.' </p>';
