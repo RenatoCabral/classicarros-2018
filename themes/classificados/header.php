@@ -4,7 +4,7 @@
     <title>
 		<?php
 		if ( is_home() ) {
-			echo "ClassiCarros";
+			bloginfo('name');
 		} else {
 			wp_title( '|', true, 'right' );
 			bloginfo( 'name' );
@@ -21,6 +21,27 @@
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/jquery.fancybox.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/classicarros.css">
+
+
+	<?php if ( is_singular( 'blog' ) ) { ?>
+        <meta property="og:url" content="<?php the_permalink() ?>"/>
+        <meta property="og:title" content="<?php the_title() ?>"/>
+        <meta property="og:description" content="<?php the_content() ?>"/>
+        <meta property="og:image" content="<?php the_post_thumbnail_url(); ?>"/>
+	<?php } else { ?>
+        <meta property="og:url" content="<?= home_url(); ?>"/>
+        <meta property="og:title" content="<?php bloginfo( 'name' ); ?>"/>
+        <meta property="og:description" content="<?php bloginfo( 'description' ); ?>"/>
+        <meta property="og:image" content="<?php bloginfo( 'template_directory' ); ?>/img/fb-share.jpg"/>
+	<?php } ?>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image:width" content="200"/>
+    <meta property="og:image:height" content="200"/>
+
+    <meta content="<?php bloginfo( 'description' ); ?>" name="description">
+    <meta name="keywords" content="carros, vendas, anuncios, veículos, carros usados, carros novos, classificados, jataí, goias">
+    <meta name="author" content="<?php bloginfo( 'name' ); ?>">
+
     <?php wp_head(); ?>
 </head>
 <body>
