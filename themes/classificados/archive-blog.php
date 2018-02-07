@@ -3,6 +3,9 @@
   <div class="container-fluid">
     <div class="row">
       <h1 class="title_news title-archive">Blog</h1>
+        <div class="div-searchform-blog">
+		    <?php get_search_form(); ?>
+        </div>
       <div class="col s12 m12 l12 list-featured-vehicles">
         <?php  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 

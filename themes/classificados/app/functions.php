@@ -284,11 +284,10 @@ function post_pagination($pages = '', $range = 2) {
 function my_post_count_queries( $query ) {
   if (!is_admin() && is_post_type_archive( 'blog' ) ){
 
-       $query->set('posts_per_page', 3);
+       $query->set('posts_per_page', 6);
 
   }
 }
-add_action( 'pre_get_posts', 'my_post_count_queries' );
 
 function post_pagination_blog(){
 
