@@ -1062,6 +1062,10 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
     color: red !important;
 }
 
+
+.menu-mobile-responsive{
+    float: right;
+}
 /*****************************media queries*************************/
 
 @media (max-width: 1024px) {
@@ -1089,7 +1093,10 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
 
 /* Extra Small Devices, Phones */
 @media (max-width: 600px) {
-
+.logo-header{
+    margin: 0 auto;
+    display: block;
+}
   .center-div-home{
     width: 100% !important;
   }

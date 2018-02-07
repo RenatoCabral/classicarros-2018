@@ -1,5 +1,5 @@
 <nav class="z-depth-0 nav-menu">
-    <div class="nav-wrapper"> <!--<a href="#!" class="brand-logo">Logo</a>-->
+    <div class="nav-wrapper menu-mobile-responsive" > <!--<a href="#!" class="brand-logo">Logo</a>-->
         <a href="#" data-activates="mobile-demo" class="button-collapse">
             <i class="material-icons icon-menu-mobile">menu</i>
         </a>

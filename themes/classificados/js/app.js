@@ -7,6 +7,10 @@ $(".button-collapse").sideNav();
 $(document).ready(function () {
     makeMasks();
     makeActiveMenu();
+    var windowWidth = $(window).width();
+    if (windowWidth <= 600) {
+        replaceMenuLogoMobile();
+    }
 
     jQuery('.select-searchform').select2();
 
@@ -67,4 +71,10 @@ function makeActiveMenu() {
     } else {
         $('[data-menu="' + currentUrl + '"]').addClass('active');
     }
+}
+
+
+function replaceMenuLogoMobile(){
+        $(".aside-single").clone().removeAttr('id','aside-to-clone').appendTo($(".cloned-aside"));
+        $("#aside-to-clone").remove();
 }
