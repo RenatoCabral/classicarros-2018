@@ -43,6 +43,7 @@
     <meta name="author" content="<?php bloginfo( 'name' ); ?>">
 
     <?php wp_head(); ?>
+
 </head>
 <body>
 
