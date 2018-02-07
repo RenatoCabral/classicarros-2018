@@ -51,7 +51,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col s12 m4 l4 aside-single" id="aside-to-clone">
+            <div class="col s12 m4 l4 logo-classicarros" id="logo-classicarros">
                 <a href="<?= home_url(); ?>">
                     <img class="logo-header responsive-img" src="<?php bloginfo('template_directory') ?>/img/logo.png">
                 </a>
@@ -60,7 +60,7 @@
             <div class="col s12 m8 l8 " >
 		        <?php get_template_part ('menu'); ?>
             </div>
-            <div class="cloned-aside"></div>
+            <div class="cloned-logo-classicarros"></div>
         </div>
     </div>
 </div>

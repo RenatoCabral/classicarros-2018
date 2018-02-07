@@ -75,6 +75,6 @@ function makeActiveMenu() {
 
 
 function replaceMenuLogoMobile(){
-        $(".aside-single").clone().removeAttr('id','aside-to-clone').appendTo($(".cloned-aside"));
-        $("#aside-to-clone").remove();
+        $(".logo-classicarros").clone().removeAttr('id','logo-classicarros').appendTo($(".cloned-logo-classicarros"));
+        $("#logo-classicarros").remove();
 }
