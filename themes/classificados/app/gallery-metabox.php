@@ -7,6 +7,7 @@ function gallery_metabox_enqueue($hook) {
 		wp_enqueue_style('gallery-metabox', get_template_directory_uri() . '/css/gallery-metabox.css');
 	}
 }
+
 add_action('admin_enqueue_scripts', 'gallery_metabox_enqueue');
 function add_gallery_metabox($post_type) {
 	$types = array('veiculo');
