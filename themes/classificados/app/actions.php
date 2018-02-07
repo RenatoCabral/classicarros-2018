@@ -3,7 +3,7 @@ add_action( 'login_enqueue_scripts', 'change_login_image' );
 add_filter( 'admin_footer_text', 'change_admin_footer_text' );
 add_filter( 'login_headertitle', 'add_custom_login_logo_url_title' );
 add_filter( 'login_headerurl', 'add_custom_login_logo_url' );
-
+add_action( 'wp_before_admin_bar_render', 'remove_unused_admin_bar' );
 
 
 // Imagens dos posts

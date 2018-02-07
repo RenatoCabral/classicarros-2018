@@ -12,7 +12,6 @@ function change_login_image() {
                 width: 410px !important;
                 height: 69px !important;
                 background-size: inherit;
-                cursor: default;
                 
             }
             body.login a{
@@ -37,5 +36,20 @@ function add_custom_login_logo_url_title() {
 }
 
 function add_custom_login_logo_url() {
-	return '';
+	return home_url();
+}
+
+# Remove unused admin bar items
+function remove_unused_admin_bar() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu( 'wp-logo' );
+	$wp_admin_bar->remove_menu( 'about' );
+	$wp_admin_bar->remove_menu( 'wporg' );
+	$wp_admin_bar->remove_menu( 'documentation' );
+	$wp_admin_bar->remove_menu( 'support-forums' );
+	$wp_admin_bar->remove_menu( 'feedback' );
+	$wp_admin_bar->remove_menu( 'view-site' );
+	$wp_admin_bar->remove_menu( 'comments' );
+	$wp_admin_bar->remove_menu( 'updates' );
+	$wp_admin_bar->remove_menu( 'new-content' );
 }
