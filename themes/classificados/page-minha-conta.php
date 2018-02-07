@@ -24,7 +24,6 @@
     </div>
 
 	<?php get_footer();
-
 } else {
 	wp_redirect( home_url() . '/wp-admin/edit.php?post_type=veiculo' );
 	exit;
