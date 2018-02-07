@@ -5,17 +5,15 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
     <div class="container-fluid">
         <div class="row">
             <h1 class="title_news title-archive"><?= $term->name ?></h1>
+	        <?php get_template_part('searchform-detailed'); ?>
+            <br>
+            <div class="col s12 m6 l12 search-category-manufacturer">
 
-            <div class="row">
-                <div class="box-filter-category">
-                    <div class="col s12 m6 l2">
+		        <?php
+		        render_category_dropdown_filter( 'veiculo', 'categoria', 'Categoria' );
+		        render_category_dropdown_filter( 'veiculo', 'manufacturer','Fabricante' );
+		        ?>
 
-                        <?php
-                        render_category_dropdown_filter( 'veiculo', 'categoria', 'Categoria' );
-                        render_category_dropdown_filter( 'veiculo', 'manufacturer','Fabricante' );
-                        ?>
-                    </div>
-                </div>
             </div>
 
             <div class="col s12 m12 l12 list-featured-vehicles">

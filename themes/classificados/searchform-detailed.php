@@ -14,10 +14,10 @@ if(is_home() || is_singular('veiculo')){
         <form class="form-search" action="<?= home_url() ?>">
 
             <input type="hidden" name="s" value="-1">
-            <input type="hidden" name="post_type"value="veiculo">
+            <input type="hidden" name="post_type" value="veiculo">
             <input type="hidden" name="search-type" value="detailed">
 
-            <div class="row col s12 m12 l2">
+            <div class="row col s12 m6 l2">
                 <div>
 
                     <?php
@@ -36,21 +36,21 @@ if(is_home() || is_singular('veiculo')){
                     ?>
                 </div>
             </div>
-            <div class="row col s12 m12 l2">
+            <div class="row col s12 m6 l2">
                 <div>
                     <select name="model" id="Select-Modelo" class="select-searchform">
                         <option value="">Modelos</option>
                     </select>
                 </div>
             </div>
-            <div class="row col s12 m12 l2">
+            <div class="row col s12 m6 l2">
                 <div>
                     <select name="year" id="Select-Ano" class="select-searchform">
                         <option value="">Ano</option>
                     </select>
                 </div>
             </div>
-            <div class="row col s12 m12 l2">
+            <div class="row col s12 m6 l2">
                 <div>
                     <select name="pricemax" id="pricemax" class="select-searchform">
                         <option value="">Valor Máximo</option>
@@ -62,7 +62,7 @@ if(is_home() || is_singular('veiculo')){
                     </select>
                 </div>
             </div>
-            <div class="row col s12 m12 l2">
+            <div class="row col s12 m6 l2">
                 <div class="input-field input-searchform">
                     <input id="code" name="code" type="text" class="validate">
                     <label for="code">Código: </label>
