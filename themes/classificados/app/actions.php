@@ -6,6 +6,9 @@ add_filter( 'login_headerurl', 'add_custom_login_logo_url' );
 add_action( 'wp_before_admin_bar_render', 'remove_unused_admin_bar' );
 add_filter( 'intermediate_image_sizes_advanced', 'remove_default_image_sizes' );
 
+remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+
 add_action( 'pre_get_posts', 'my_post_count_queries' );
 
 
