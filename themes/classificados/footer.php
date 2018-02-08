@@ -48,7 +48,7 @@
 <?php } ?>
 
 
-<script src="<?php bloginfo('template_directory') ?>/js/jquery-3.2.1.min.js"></script>
+<script src="<?php bloginfo('template_directory') ?>/js/jquery.min.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/select2.min.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/materialize.min.js"></script>
 <script src="<?php bloginfo('template_directory') ?>/js/slick.js"></script>
