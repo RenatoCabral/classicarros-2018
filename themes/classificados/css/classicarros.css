@@ -1071,12 +1071,18 @@ div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok{
 }
 
 .paragraph-contact{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
+    line-height: 30px;
+
 }
 .single-veiculo-thumbnail img{
     height: 0;
     visibility: hidden;
+}
+.p-link-menu-footer{
+    margin: 5px !important;
+    font-size: 16px;
 }
 /*****************************media queries*************************/
 
