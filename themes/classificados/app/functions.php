@@ -235,6 +235,14 @@ function admin_scripts(){ ?>
         </script>
 
     <?php }
+$user = wp_get_current_user();
+    if ( in_array( 'vendedor', (array) $user->roles ) ) {?>
+        <style>
+        .subsubsub{
+        display: none;
+        }
+        </style>
+    <?php }
 }
 
 function post_pagination($pages = '', $range = 2) {
@@ -364,27 +372,37 @@ function limit_character($string, $max) {
 
 
 //https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
-function send_email_published_post($post_id){
+function send_email_published_post($post_id, $post, $update){
 // If this is just a revision, don't send the email.
-	if ( wp_is_post_revision( $post_id ) )
+	if ( isset( $post->post_status ) && 'auto-draft' == $post->post_status || 'draft' == $post->post_status  ) {
 		return;
+	}
 
-	$post_title = get_the_title( $post_id );
-	$post_url = get_permalink( $post_id );
-	$subject = 'Seu anúncio foi publicado ou alterado/atualizado... ';
+	remove_action( 'save_post_veiculo', 'send_email_published_post' );
+     $post_title = get_the_title( $post_id );
 
-	$message = "Seu anúncio foi publicado ou alterado/atualizado:\n\n";
-	$message .= "Qualquer dúvida entre em contato com o Classicarros:\n\n";
-	$message .= get_permalink( get_page_by_path( 'contato' ) )."\n\n\n\n";
-	$message .= $post_title . ": " . $post_url;
+    if('pending' == $post->post_status){
+        $subject = 'ClassiCarros - Anúncio cadastrado com sucesso! ';
+        $message = 'Seu anúncio foi enviado para revisão</p> ';
+        $message .= "<p>Qualquer dúvida entre em contato com o Classicarros:</p>";
+        $message .= get_permalink( get_page_by_path( 'contato' ) )."\n\n\n\n";
+        $message .= $post_title;
+    }else{
+        $post_url = get_permalink( $post_id );
+        $subject = 'ClassiCarros - Seu anúncio foi publicado!';
+        $message = "<p>Seu anúncio foi publicado ou alterado/atualizado!</p>";
+        $message .= "<p>Qualquer dúvida entre em contato com o Classicarros:</p>";
+        $message .= get_permalink( get_page_by_path( 'contato' ) )."<br><br>";
+        $message .= $post_title . ": " . $post_url;
+    }
+
+    $author_id  = get_post_field( 'post_author', $post_id );
 
 
-	$author_id  = get_post_field( 'post_author', $post_id );
+    // Send email to vendedor.
+    wp_mail(get_the_author_meta( 'user_email', $author_id ) , $subject, $message );
 
-
-
-	// Send email to admin.
-	wp_mail(get_the_author_meta( 'user_email', $author_id ) , $subject, $message );
+    add_action( 'save_post_veiculo', 'send_email_published_post', 10, 3 );
 }
 
 
