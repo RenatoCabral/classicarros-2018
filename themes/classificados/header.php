@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/classicarros.css">
 
 
-	<?php if ( is_singular( 'blog' ) ) { ?>
+	<?php if ( is_singular( 'blog' ) || is_singular('veiculo') ) { ?>
         <meta property="og:url" content="<?php the_permalink() ?>"/>
         <meta property="og:title" content="<?php the_title() ?>"/>
         <meta property="og:description" content="<?php the_content() ?>"/>

@@ -74,7 +74,13 @@ setPostViews( $post_id );
 
         </div>
 
-		<?php render_outros_veiculos( $post_id, $categorias[0]->slug ) ?>
+		<?php render_outros_veiculos( $post_id, $categorias[0]->slug );
+		if(has_post_thumbnail()){ ?>
+            <div class="single-veiculo-thumbnail">
+                <?php the_post_thumbnail(); ?>
+            </div>
+        <?php }
+		?>
 
     </div>
 
