@@ -29,7 +29,7 @@ function gallery_meta_callback($post) {
 
 						<li>
 							<input type="hidden" name="vdw_gallery_id[<?php echo $key; ?>]" value="<?php echo $value; ?>">
-							<img class="image-preview" src="<?php echo $image[0]; ?>">
+							<img style="width: 150px;height: auto;" class="image-preview" src="<?php echo $image[0]; ?>">
 							<a class="change-image button button-small" href="#" data-uploader-title="Alterar" data-uploader-button-text="Alterar">Alterar</a><br>
 							<small><a class="remove-image" href="#">Remover</a></small>
 						</li>

@@ -185,13 +185,10 @@ function admin_scripts(){ ?>
 
 
        <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/select2.min.css">
+       <link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/css/opcionais.css">
 
         <style>
 
-            .item-serie{
-                margin: 8px;
-                display: inline-block;
-            }
 
             .item-detalhes{
                 display: inline-block;

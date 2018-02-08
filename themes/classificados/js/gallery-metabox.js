@@ -19,12 +19,12 @@ jQuery(function($) {
         file_frame.on('select', function() {
             var listIndex = $('#gallery-metabox-list li').index($('#gallery-metabox-list li:last')),
                 selection = file_frame.state().get('selection');
-
+            var index;
             selection.map(function(attachment, i) {
                 attachment = attachment.toJSON(),
                     index      = listIndex + (i + 1);
 
-                $('#gallery-metabox-list').append('<li><input type="hidden" name="vdw_gallery_id[' + index + ']" value="' + attachment.id + '"><img class="image-preview" src="' + attachment.sizes.thumbnail.url + '"><a class="change-image button button-small" href="#" data-uploader-title="Alterar" data-uploader-button-text="Alterar">Alterar</a><br><small><a class="remove-image" href="#">Remover</a></small></li>');
+                $('#gallery-metabox-list').append('<li><input type="hidden" name="vdw_gallery_id[' + index + ']" value="' + attachment.id + '"><img style="width: 150px;height: auto;" class="image-preview" src="' + attachment.url + '"><a class="change-image button button-small" href="#" data-uploader-title="Alterar" data-uploader-button-text="Alterar">Alterar</a><br><small><a class="remove-image" href="#">Remover</a></small></li>');
             });
         });
 
