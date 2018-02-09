@@ -14,7 +14,7 @@ setPostViews( $post_id );
                 <div class="col s12 m12 l6">
                     <div class=" col s12 m12 l12 description-vehicle">
                         <h1><?php the_title(); ?> </h1>
-                        <p class="price-veiculo">R$ <?= number_format( $price, 2, ',', '.' ); ?></p>
+                        <p class="price-veiculo">R$ <?= number_format( (float) $price, 2, ',', '.' ); ?></p>
                     </div>
 
 					<?php
