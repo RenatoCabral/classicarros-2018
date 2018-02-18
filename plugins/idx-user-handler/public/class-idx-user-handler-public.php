@@ -285,7 +285,7 @@ class Idx_User_Handler_Public {
 				global $wpdb;
 
 				$token   = $_GET['token'];
-				$sql     = "SELECT id FROM wp_users WHERE user_activation_key = '{$token}'";
+				$sql     = "SELECT id FROM tcc_users WHERE user_activation_key = '{$token}'";
 				$results = $wpdb->get_row( $sql );
 
 				if ( empty( $results ) ) {
